@@ -12,7 +12,7 @@ const Checklist = () => {
   return (
     <div className='list'>
         <ul>
-            {initialItems.map((item)=><Items item={item}/>)}
+            {initialItems.map((item)=><Items item={item} key={item.id}/>)}
         </ul>
     </div>
   )
