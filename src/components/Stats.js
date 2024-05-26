@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Stats = () => {
+const Stats = ({num}) => {
   return (
     <div>
-        <footer className='stats'><em>You have check the total Items X and You packed the items X%</em></footer>
+        <footer className='stats'><em>You have check the total Items {num} and You packed the items X%</em></footer>
     </div>
   )
 }
