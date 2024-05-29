@@ -7,7 +7,6 @@ import { useState } from "react";
 
 function App() {
   const [items,setItems]=useState([])
-  const numItem=items.length;
   function handleItems(item){
       setItems((items)=>[...items,item])
   }
@@ -20,12 +19,18 @@ function handleDelete(id){
   setItems((items)=>items.filter((item)=>item.id !== id))
 }
 
+function handleClear(){
+   const confirm=window.confirm('Are You Sure to delete All the Items in the list')
+   if(confirm){
+    setItems([]);
+   }
+}
   return (
     <div className="app">
       <Logo/>
       <Form onAddItem={handleItems}/>
-      <Checklist items={items} onDeleteItem={handleDelete} ontoggle={handletoggle} />
-      <Stats num={numItem}/>
+      <Checklist items={items} onDeleteItem={handleDelete} ontoggle={handletoggle} onClearitem={handleClear} />
+      <Stats item={items}/>
     </div>
   );
 }
